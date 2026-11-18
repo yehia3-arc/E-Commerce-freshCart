@@ -1,0 +1,12 @@
+import React from "react";
+
+import { GridLoader } from "react-spinners";
+export default function loading() {
+  return (
+    <>
+      <div className="h-screen flex items-center justify-center ">
+        <GridLoader color="#36d7b7" />
+      </div>
+    </>
+  );
+}
