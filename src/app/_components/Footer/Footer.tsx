@@ -19,9 +19,9 @@ const cols = [
       ["All Products", "/productdetails"],
       ["Categories", "/categories"],
       ["Brands", "/brands"],
-      ["Electronics", "/productdetails?keyword=electronics"],
-      ["Men's Fashion", "/productdetails?keyword=men"],
-      ["Women's Fashion", "/productdetails?keyword=women"],
+      ["Electronics", "/productdetails?category=electronics"],
+      ["Men's Fashion", "/productdetails?category=men's-fashion"],
+      ["Women's Fashion", "/productdetails?category=women's-fashion"],
     ],
   },
   {
