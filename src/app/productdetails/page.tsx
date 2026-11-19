@@ -4,6 +4,7 @@ import PageHeader from "../_components/PageHeader/PageHeader";
 import { FaBoxOpen, FaXmark } from "react-icons/fa6";
 import {
   getAllProducts,
+  getAllProductsinProducts,
   getSpecificSubCategory,
 } from "@/api/services/routemisr.service";
 import { LuFolderOpen } from "react-icons/lu";
@@ -13,7 +14,7 @@ export default async function Productdetails(props: {
   searchParams: Promise<{ category?: string; subcategory?: string }>;
 }) {
   const searchParams = await props.searchParams;
-  const allProducts = (await getAllProducts()) ?? [];
+  const allProducts = (await getAllProductsinProducts()) ?? [];
   // ✅ 1. Fetch subcategory details if param exists (uses exact Postman URL: /subcategories/${id})
   const subId = searchParams.subcategory;
   const sub = subId ? await getSpecificSubCategory(subId) : undefined;

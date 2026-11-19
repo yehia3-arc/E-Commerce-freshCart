@@ -1,5 +1,25 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
+# 🛍️ Modern E-Commerce Storefront
+
+A responsive, high-performance e-commerce web application built with **Next.js**. The user interface was crafted from a custom **Figma** design and integrated with an external REST API to handle dynamic product data, user authentication, and cart management.
+
+## ✨ Key Features
+
+- **Pixel-Perfect UI/UX:** Translated from Figma wireframes into reusable, responsive components.
+- **Dynamic Product Catalog:** Real-time product listing, category filtering, and search functionality powered by REST API endpoints.
+- **Shopping Cart & Checkout Flow:** Interactive cart state management allowing users to add, update, and remove items seamlessly.
+- **Authentication & User Sessions:** Secure login, registration, and protected user routes.
+- **Performance Optimized:** Built with Next.js App Router, optimized images, and fast client-side navigation.
+
+## 🛠️ Tech Stack
+
+- **Framework:** Next.js (React)
+- **Styling:** Tailwind CSS _(or CSS Modules / Shadcn UI)_
+- **State Management:** Context API / Redux / Zustand _(keep what you used)_
+- **API Integration:** Fetch / Axios (REST API)
+- **Design:** Figma
+
 ## Getting Started
 
 First, run the development server:

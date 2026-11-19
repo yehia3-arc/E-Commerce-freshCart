@@ -8,7 +8,7 @@ import {
 export async function getAllProducts(): Promise<ProductType[] | undefined> {
   try {
     const res = await fetch(`https://ecommerce.routemisr.com/api/v1/products`, {
-      cache: "force-cache",
+      cache: "no-store",
     });
     const data = await res.json();
     return data.data;
@@ -16,38 +16,32 @@ export async function getAllProducts(): Promise<ProductType[] | undefined> {
     return undefined;
   }
 }
-// export async function getAllProductsForSearch(): Promise<
-//   ProductType[] | undefined
-// > {
-//   try {
-//     const limit = 50;
-//     let page = 1;
-//     let total = Infinity;
-//     let all: ProductType[] = [];
+export async function getAllProductsinProducts(): Promise<
+  ProductType[] | undefined
+> {
+  try {
+    const res = await fetch(
+      `https://ecommerce.routemisr.com/api/v1/products?limit=56`,
+      {
+        cache: "no-store",
+      },
+    );
+    const data = await res.json();
+    return data.data;
+  } catch (err) {
+    return undefined;
+  }
+}
 
-//     while (all.length < total) {
-//       const res = await fetch(
-//         `https://ecommerce.routemisr.com/api/v1/products?page=${page}&limit=${limit}`,
-//         { cache: "force-cache" },
-//       );
-//       const data = await res.json();
-//       total = data.results ?? 0; // total product count from the API
-//       const list: ProductType[] = data.data ?? [];
-//       if (!list.length) break;
-//       all = all.concat(list);
-//       page++;
-//     }
-//     return all;
-//   } catch (err) {
-//     return undefined;
-//   }
-// }
 export async function getSingleProduct(
   id: string,
 ): Promise<ProductType | undefined> {
   try {
     const res = await fetch(
       `https://ecommerce.routemisr.com/api/v1/products/${id}`,
+      {
+        cache: "no-store",
+      },
     );
     const data = await res.json();
     console.log("dataaaaa", data.data);
@@ -60,6 +54,9 @@ export async function getAllCategory(): Promise<CategoryType[] | undefined> {
   try {
     const res = await fetch(
       `https://ecommerce.routemisr.com/api/v1/categories`,
+      {
+        next: { revalidate: 3600 },
+      },
     );
     const data = await res.json();
     //console.log("dataaaa", data.data);
@@ -71,7 +68,7 @@ export async function getAllCategory(): Promise<CategoryType[] | undefined> {
 export async function getAllBrands(): Promise<BrandType[] | undefined> {
   try {
     const res = await fetch(`https://ecommerce.routemisr.com/api/v1/brands`, {
-      cache: "force-cache",
+      next: { revalidate: 3600 },
     });
     const data = await res.json();
     return data.data;
@@ -86,7 +83,7 @@ export async function getSingleBrand(
   try {
     const res = await fetch(
       `https://ecommerce.routemisr.com/api/v1/brands/${id}`,
-      { cache: "force-cache" },
+      { next: { revalidate: 3600 } },
     );
     const data = await res.json();
     return data.data;
@@ -117,7 +114,7 @@ export async function getAllSubCategory(
     const res = await fetch(
       `https://ecommerce.routemisr.com/api/v1/categories/${id}/subcategories`,
       {
-        cache: "force-cache",
+        cache: "no-store",
       },
     );
     const data = await res.json();
@@ -132,7 +129,7 @@ export async function getProductsByCategory(
   try {
     const res = await fetch(
       `https://ecommerce.routemisr.com/api/v1/categories/${id}`,
-      { cache: "force-cache" },
+      { next: { revalidate: 3600 } },
     );
     const data = await res.json();
     return data.data;
@@ -147,7 +144,7 @@ export async function getSpecificSubCategory(
     const res = await fetch(
       `https://ecommerce.routemisr.com/api/v1/subcategories/${id}`,
       {
-        cache: "force-cache",
+        cache: "no-store",
       },
     );
     const data = await res.json();
