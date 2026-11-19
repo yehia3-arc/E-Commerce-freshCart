@@ -7,8 +7,6 @@ import React from "react";
 import { FaLongArrowAltRight } from "react-icons/fa";
 
 export default async function HomeCategories() {
-  //https://ecommerce.routemisr.com/api/v1/categories
-
   const allCategories = await getAllCategory(); //[object]  ==> all categories
 
   return (
@@ -32,7 +30,7 @@ export default async function HomeCategories() {
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
             {allCategories?.map((category) => (
               <Link
-                href="/category"
+                href={`/productdetails?category=${category.slug}`} // ✅ slug key from the API
                 key={category._id}
                 className="bg-white rounded-lg p-4 text-center shadow-sm hover:shadow-md transition group cursor-pointer "
               >

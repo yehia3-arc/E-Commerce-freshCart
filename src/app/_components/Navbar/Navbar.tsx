@@ -22,8 +22,7 @@ import { FaShoppingCart } from "react-icons/fa";
 import { FaAddressCard } from "react-icons/fa";
 import { WishlistContext } from "@/context/WishlistContext";
 import { FaRegHeart } from "react-icons/fa6";
-// FIX 1: import the image so Next.js bundles it correctly
-// (if "@/..." alias doesn't work, use: import logo from "../assets/pictures/faction.png";)
+
 import logo from "@/assets/pictures/faction.png";
 import { FaGift, FaPhoneAlt, FaTruck, FaUserPlus } from "react-icons/fa";
 import { useSession, signOut } from "next-auth/react";
